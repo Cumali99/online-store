@@ -26,6 +26,16 @@ body {
   }
 }
 
+.closeB {
+  transition: transform 0.1s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
 .greenButton {
   width: 100%;
   height: 55px;
@@ -48,18 +58,22 @@ body {
 }
 
 .removeB {
-  // opacity: 0.4;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 2px solid grey;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.4s ease-in-out, color 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out;
 
   &:hover {
-    color: red;
+    color: rgb(255, 0, 0);
+
     transform: rotate(180deg);
+  }
+  &:active {
+    color: rgb(255, 92, 92);
   }
 }
 
@@ -303,6 +317,7 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  overflow: auto;
 }
 
 .cartTotalBlock {
@@ -319,4 +334,10 @@ body {
     display: flex;
     align-items: flex-end;
   }
+}
+
+.drawerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
