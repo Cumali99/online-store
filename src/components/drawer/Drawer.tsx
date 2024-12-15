@@ -1,4 +1,4 @@
-import style from "../../App.module.scss";
+import style from "./Drawer.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import EastIcon from "@mui/icons-material/East";
 

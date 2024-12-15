@@ -2,11 +2,7 @@ import style from "./App.module.scss";
 import Header from "./components/header/Header";
 import Card from "./components/card/Card";
 import Drawer from "./components/drawer/Drawer";
-
-import AddIcon from "@mui/icons-material/Add";
 import SearchIcon from "@mui/icons-material/Search";
-
-import CloseIcon from "@mui/icons-material/Close";
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import style from "../../App.module.scss";
+import style from "./Card.module.scss";
 import FavoriteIconFalse from "@mui/icons-material/FavoriteBorder";
 import FavoriteIconTrue from "@mui/icons-material/Favorite";
 import CheckIcon from "@mui/icons-material/Check";

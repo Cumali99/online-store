@@ -1,4 +1,4 @@
-import style from "../../App.module.scss";
+import style from "./Header.module.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
@@ -14,10 +14,10 @@ function Header() {
       </div>
       <ul className={style.headerRight}>
         <li className={`${style.headerRight} ${style.li}`}>
-          <ShoppingCartIcon className={style.icon} /> <span>20 USD</span>
+          <ShoppingCartIcon className={style.iconButton} /> <span>20 USD</span>
         </li>
         <li>
-          <AccountCircleIcon className={style.icon} />
+          <AccountCircleIcon className={style.iconButton} />
         </li>
       </ul>
     </header>
