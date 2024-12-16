@@ -1,33 +1,45 @@
-import style from "./Card.module.scss";
+import { FC, MouseEventHandler } from "react";
+import styles from "./Card.module.scss";
 import FavoriteIconFalse from "@mui/icons-material/FavoriteBorder";
 import FavoriteIconTrue from "@mui/icons-material/Favorite";
 import CheckIcon from "@mui/icons-material/Check";
 import AddIcon from "@mui/icons-material/Add";
 
-function Card() {
+interface CardProps {
+  title: string;
+  price: number;
+  imageURL: string;
+  onClick: () => void;
+}
+
+const Card: FC<CardProps> = ({ title, price, imageURL, onClick }) => {
+  // const onClickButton = () => {
+  //   alert("");
+  // };
+
   return (
     <>
-      <div className={style.card}>
-        <div className={style.favorite}>
+      <div className={styles.card}>
+        <div className={styles.favorite}>
           <FavoriteIconFalse />
         </div>
         <img
-          className={style.imgProduct}
-          src="/img/car/car1.jpg"
+          className={styles.imgProduct}
+          src={imageURL}
           alt="картинка товара"
         />
-        <h5>Описание товара</h5>
-        <div className={style.cardBottom}>
-          <div className={style.flexColumn}>
+        <h5>{title}</h5>
+        <div className={styles.cardBottom}>
+          <div className={styles.flexColumn}>
             <span>Цена:</span>
-            <b>50 USD</b>
+            <b>{price} USD</b>
           </div>
-          <button className={style.button}>
-            <AddIcon className={style.midIcon} />
+          <button className={styles.button} onClick={onClick}>
+            <AddIcon className={styles.midIcon} />
           </button>
         </div>
       </div>
     </>
   );
-}
+};
 export default Card;
