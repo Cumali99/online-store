@@ -1,8 +1,13 @@
+import { FC } from "react";
 import styles from "./Header.module.scss";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-function Header() {
+interface HeaderProps {
+  onClickCart: () => void;
+}
+
+const Header: FC<HeaderProps> = ({ onClickCart }) => {
   return (
     <header className={styles.header}>
       <div className={styles.headerLeft}>
@@ -14,7 +19,11 @@ function Header() {
       </div>
       <ul className={styles.headerRight}>
         <li className={`${styles.headerRight} ${styles.li}`}>
-          <ShoppingCartIcon className={styles.iconButton} /> <span>20 USD</span>
+          <ShoppingCartIcon
+            onClick={onClickCart}
+            className={styles.iconButton}
+          />
+          <span>20 USD</span>
         </li>
         <li>
           <AccountCircleIcon className={styles.iconButton} />
@@ -22,5 +31,5 @@ function Header() {
       </ul>
     </header>
   );
-}
+};
 export default Header;

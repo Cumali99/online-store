@@ -1,13 +1,19 @@
+import { FC } from "react";
 import styles from "./Drawer.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import EastIcon from "@mui/icons-material/East";
 
-function Drawer() {
+interface DrawerProps {
+  onClose: () => void;
+}
+
+const Drawer: FC<DrawerProps> = ({ onClose }) => {
   return (
-    <div style={{ display: "none" }} className={styles.overlay}>
+    <div className={styles.overlay}>
       <div className={styles.drawer}>
         <div className={styles.drawerTop}>
-          <h2>Корзина</h2> <CloseIcon className={styles.closeB} />
+          <h2>Корзина</h2>
+          <CloseIcon onClick={onClose} className={styles.closeB} />
         </div>
         <div className={styles.items}>
           <div className={styles.cartItem}>
@@ -49,5 +55,5 @@ function Drawer() {
       </div>
     </div>
   );
-}
+};
 export default Drawer;

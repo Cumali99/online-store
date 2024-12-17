@@ -10,7 +10,14 @@
   height: 32px;
   cursor: pointer;
   &:hover {
-    background: grey;
+    background: rgba(209, 209, 209, 0.13);
+  }
+
+  .favoriteB {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
   }
 }
 

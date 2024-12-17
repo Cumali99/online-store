@@ -99,4 +99,6 @@ body {
 
 .featured /*избранные*/ {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }

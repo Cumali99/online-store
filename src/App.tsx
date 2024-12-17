@@ -1,21 +1,30 @@
+import { useEffect, useState } from "react";
 import styles from "./App.module.scss";
 import Header from "./components/header/Header";
 import Card from "./components/card/Card";
 import Drawer from "./components/drawer/Drawer";
 import SearchIcon from "@mui/icons-material/Search";
 
-const arr = [
-  { title: "кр1", price: 21, imageURL: "/img/car/car1.jpg" },
-  { title: "коротко", price: 50, imageURL: "/img/car/car2.jpg" },
-  { title: "описание", price: 70, imageURL: "/img/car/car3.jpg" },
-  { title: "все просто", price: 100, imageURL: "/img/car/car4.jpg" },
-];
-
 function App() {
+  let [cartOpened, setCartOpened] = useState(false);
+  const [items, setItems] = useState<
+    { title: string; price: number; imageURL: string }[]
+  >([]);
+
+  useEffect(() => {
+    fetch("https://6761ad1c46efb373237296ad.mockapi.io/items")
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        setItems(json);
+      });
+  }, []);
+
   return (
     <div className={styles.wrapper}>
-      <Drawer />
-      <Header />
+      {cartOpened && <Drawer onClose={() => setCartOpened(false)} />}
+      <Header onClickCart={() => setCartOpened(true)} />
       <div className={styles.content}>
         <div className={styles.upBlock}>
           <h1>Тебе понравится</h1>
@@ -26,12 +35,11 @@ function App() {
         </div>
 
         <div className={styles.featured}>
-          {arr.map((obj) => (
+          {items.map((item) => (
             <Card
-              title={obj.title}
-              price={obj.price}
-              imageURL={obj.imageURL}
-              onClick={() => console.log(obj)}
+              title={item.title}
+              price={item.price}
+              imageURL={item.imageURL}
             />
           ))}
         </div>
