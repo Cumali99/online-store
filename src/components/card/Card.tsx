@@ -4,19 +4,20 @@ import FavoriteIconFalse from "@mui/icons-material/FavoriteBorder";
 import FavoriteIconTrue from "@mui/icons-material/Favorite";
 import CheckIcon from "@mui/icons-material/Check";
 import AddIcon from "@mui/icons-material/Add";
-import { green, red } from "@mui/material/colors";
 
 interface CardProps {
   title: string;
   price: number;
   imageURL: string;
+  onPlus: () => void;
 }
 
-const Card: FC<CardProps> = ({ title, price, imageURL }) => {
+const Card: FC<CardProps> = ({ title, price, imageURL, onPlus }) => {
   const [isAdded, setIsAdded] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
   const clickAddButton = () => {
+    onPlus();
     setIsAdded(!isAdded);
   };
 

@@ -5,9 +5,10 @@ import EastIcon from "@mui/icons-material/East";
 
 interface DrawerProps {
   onClose: () => void;
+  items: { title: string; price: number; imageURL: string }[];
 }
 
-const Drawer: FC<DrawerProps> = ({ onClose }) => {
+const Drawer: FC<DrawerProps> = ({ onClose, items }) => {
   return (
     <div className={styles.overlay}>
       <div className={styles.drawer}>
@@ -16,26 +17,15 @@ const Drawer: FC<DrawerProps> = ({ onClose }) => {
           <CloseIcon onClick={onClose} className={styles.closeB} />
         </div>
         <div className={styles.items}>
-          <div className={styles.cartItem}>
-            <img width={70} height={70} src="/img/car/car1.jpg" alt="" />
-            <div>
-              <p>Описание товара</p>
-              <b>50 USD</b>
+          {items.map((obj) => (
+            <div className={styles.cartItem}>
+              <img width={70} height={70} src={obj.imageURL} alt="" />
+              <div>
+                <p>{obj.title}</p>
+                <b>{obj.price} USD</b>
+              </div>
             </div>
-            <div className={styles.removeB}>
-              <CloseIcon />
-            </div>
-          </div>
-          <div className={styles.cartItem}>
-            <img width={70} height={70} src="/img/car/car2.jpg" alt="" />
-            <div>
-              <p>Описание товара</p>
-              <b>50 USD</b>
-            </div>
-            <div className={styles.removeB}>
-              <CloseIcon />
-            </div>
-          </div>
+          ))}
         </div>
         <ul className={styles.cartTotalBlock}>
           <li>
